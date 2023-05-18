@@ -8,10 +8,15 @@ public class mainCamera : MonoBehaviour
     public static bool follow;
     public static Vector3 site;
     public float moveSpeed;
+    public AudioSource audios;
+    public AudioClip[] audiosClip;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
+        audios = this.gameObject.GetComponent<AudioSource>();
+        audios.clip = audiosClip[0];
+        audios.Play();
         follow = true;
     }
 

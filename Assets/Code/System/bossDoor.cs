@@ -5,7 +5,7 @@ using UnityEngine;
 public class bossDoor : MonoBehaviour
 {
     private GameObject camera;
-    public GameObject bossAppearance;
+    public GameObject boss;
     public GameObject bossDoorEntity;
     public GameObject player;
     public bool bossOpen;
@@ -42,7 +42,7 @@ public class bossDoor : MonoBehaviour
 
     void bossDoorClose()
     {
-        Instantiate(bossAppearance,new Vector3(8,32.3f,0),Quaternion.Euler(-90,0,0));
+        Instantiate(boss,new Vector3(8,32.0f,0),Quaternion.Euler(0,0,0));
         Instantiate(bossDoorEntity,this.gameObject.transform.position,Quaternion.Euler(0,0,0));
         Destroy(this.gameObject);
     }

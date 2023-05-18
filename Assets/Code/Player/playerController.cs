@@ -20,6 +20,7 @@ public class playerController : MonoBehaviour
         foot = this.gameObject.GetComponent<BoxCollider2D>();
         hpMax = 6;
         hp = hpMax;
+        direction = Direction.right;
         canInjuried = true;
         attackPreparation = true;
         attackMove = true;
@@ -47,10 +48,12 @@ public class playerController : MonoBehaviour
             playerMove();
             playerJump();
             platerAttack();
+            playerSprint();
         } 
         playerDirection();
         playerHp();
         checkGround();
+        playerMoveSpeemMax();
     }
 
     [Header("移動")]
@@ -74,11 +77,29 @@ public class playerController : MonoBehaviour
             rigid2D.AddForce(new Vector2(-moveSpeed*timer,0),ForceMode2D.Force);
             direction = Direction.left;
         }
+    }
+
+    public void playerMoveSpeemMax()
+    {
+        if (rigid2D.velocity.x > moveSpeedMax && sprintTime)
+        {
+            rigid2D.velocity = new Vector2(moveSpeedMax, rigid2D.velocity.y);
+        }
+        else if (rigid2D.velocity.x < -moveSpeedMax && sprintTime)
+        {
+            rigid2D.velocity = new Vector2(-moveSpeedMax, rigid2D.velocity.y);
+        }
+    }
+
+    public void playerSprint()
+    {
         if(Input.GetKeyDown(KeyCode.L) && attackMove && sprintCD && sprint)
         {
             sprint = false;
             sprintCD = false;
             sprintTime = false;
+            Invoke("sprintTimeEnd",0.1f);
+            Invoke("sprintCoolDown",0.25f);
             switch(direction)
             {
                 case Direction.right:
@@ -90,27 +111,17 @@ public class playerController : MonoBehaviour
                     Instantiate(sprintEffect,this.transform.position,Quaternion.Euler(0,90,0),this.transform);
                 break;
             }
-            Invoke("sprintTimeEnd",0.1f);
-            Invoke("sprintCoolDown",0.25f);
         }
-        if (rigid2D.velocity.x > moveSpeedMax && sprintTime)
-        {
-            rigid2D.velocity = new Vector2(moveSpeedMax, rigid2D.velocity.y);
-        }
-        else if (rigid2D.velocity.x < -moveSpeedMax && sprintTime)
-        {
-            rigid2D.velocity = new Vector2(-moveSpeedMax, rigid2D.velocity.y);
-        }
-    }
-
-    public void sprintCoolDown()
-    {
-        sprintCD = true;
     }
 
     public void sprintTimeEnd()
     {
         sprintTime = true;
+    }
+
+    public void sprintCoolDown()
+    {
+        sprintCD = true;
     }
 
     [Header("跳躍")]

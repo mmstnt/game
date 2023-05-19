@@ -635,7 +635,7 @@ MonoBehaviour:
   black: {fileID: 672843701452352720, guid: db739ac1a79e0e6479bb33d9b91751fa, type: 3}
   moveSpeed: 4
   moveSpeedMax: 10
-  sprintSpeed: 12
+  sprintSpeed: 20
   sprintEffect: {fileID: 1802918996040393945, guid: 4caeef85511d99c45854943052a5577d, type: 3}
   jumpSpeed: 18
   repel: 5

@@ -103,11 +103,11 @@ public class playerController : MonoBehaviour
             switch(direction)
             {
                 case Direction.right:
-                    rigid2D.AddForce(new Vector2(sprintSpeed*timer,0),ForceMode2D.Impulse);
+                    rigid2D.AddForce(new Vector2(sprintSpeed,0),ForceMode2D.Impulse);
                     Instantiate(sprintEffect,this.transform.position,Quaternion.Euler(0,-90,0),this.transform);
                 break;
                 case Direction.left:
-                    rigid2D.AddForce(new Vector2(-sprintSpeed*timer,0),ForceMode2D.Impulse);
+                    rigid2D.AddForce(new Vector2(-sprintSpeed,0),ForceMode2D.Impulse);
                     Instantiate(sprintEffect,this.transform.position,Quaternion.Euler(0,90,0),this.transform);
                 break;
             }

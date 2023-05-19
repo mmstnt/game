@@ -50,11 +50,11 @@ public class monsterFlyCub : MonoBehaviour
                 rigid2D.velocity = new Vector2(0, rigid2D.velocity.y);
                 if(this.gameObject.transform.position.x > playerSite.position.x)
                 {
-                    rigid2D.AddForce(new Vector2(repel*timer,0),ForceMode2D.Impulse);
+                    rigid2D.AddForce(new Vector2(repel,0),ForceMode2D.Impulse);
                 }
                 if(this.gameObject.transform.position.x < playerSite.position.x)
                 {
-                    rigid2D.AddForce(new Vector2(-repel*timer,0),ForceMode2D.Impulse);
+                    rigid2D.AddForce(new Vector2(-repel,0),ForceMode2D.Impulse);
                 }
                 hp--;
                 if(hp < 1)

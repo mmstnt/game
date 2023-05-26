@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class mainCamera : MonoBehaviour
 {
+    public enum Status {idle,follow,move,back,boss};
+    public static Status status;
     public GameObject player;
-    public static bool follow;
     public static Vector3 site;
     public float moveSpeed;
     public AudioSource audios;
@@ -17,20 +18,45 @@ public class mainCamera : MonoBehaviour
         audios = this.gameObject.GetComponent<AudioSource>();
         audios.clip = audiosClip[0];
         audios.Play();
-        follow = true;
+        status = Status.follow;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(follow)
+        switch(status)
         {
-            Vector3 v = player.transform.position;
-            this.gameObject.transform.position = new Vector3(v.x,v.y,-10);
+            case Status.idle:
+                break;
+            case Status.follow:
+                Vector3 v = player.transform.position;
+                this.gameObject.transform.position = new Vector3(v.x,v.y,-10);
+			    break;
+			case Status.move:
+                this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position,site,moveSpeed * Time.deltaTime);
+                if(this.gameObject.transform.position == site)
+                {
+                    Invoke("back",1.5f);
+                    status = Status.idle;
+                }
+                break;
+			case Status.back:
+                Vector3 v2 = new Vector3(player.transform.position.x,this.gameObject.transform.position.y,-10);
+				this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position,v2,moveSpeed * Time.deltaTime);
+				if(this.gameObject.transform.position == v2)
+                {
+                    status = Status.boss;
+                }
+                break;
+            case Status.boss:
+                Vector3 v3 = new Vector3(player.transform.position.x,this.gameObject.transform.position.y,-10);
+                this.gameObject.transform.position = v3;
+				break;
         }
-        else
-        {
-            this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position,site,moveSpeed * Time.deltaTime);
-        }
+    }
+
+    public void back()
+    {
+        status = Status.back;
     }
 }

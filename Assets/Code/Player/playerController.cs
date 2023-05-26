@@ -38,7 +38,7 @@ public class playerController : MonoBehaviour
         if(cutScene)
         {
             this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position,cutSceneSite,moveSpeed * Time.deltaTime);
-            if(this.gameObject.transform.position == cutSceneSite)
+            if(this.gameObject.transform.position == cutSceneSite && (mainCamera.status == mainCamera.Status.boss || mainCamera.status == mainCamera.Status.follow))
             {
                 cutScene = false;
             }
@@ -205,6 +205,32 @@ public class playerController : MonoBehaviour
         switch(coll.gameObject.tag)
         {
             case "Monster":
+            if(canInjuried)
+            {
+                hp--;
+                canInjuried = false;
+                playerInjuried.injuried = new Color(255,255,255,0.9f);
+                injuriedCD = 1;
+                Invoke("Injuried",0.05f);
+            }
+            Transform c = coll.gameObject.transform;
+            if(this.gameObject.transform.position.x > c.position.x)
+            {
+                rigid2D.AddForce(new Vector2(repel*timer,0),ForceMode2D.Impulse);
+            }
+            if(this.gameObject.transform.position.x < c.position.x)
+            {
+                rigid2D.AddForce(new Vector2(-repel*timer,0),ForceMode2D.Impulse);
+            }
+            break;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        switch(coll.gameObject.tag)
+        {
+            case "BossAttack":
             if(canInjuried)
             {
                 hp--;

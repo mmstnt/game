@@ -31,11 +31,11 @@ public class bossDoor : MonoBehaviour
                 if(bossOpen)
                 {
                     bossOpen = false;
-                    mainCamera.site = new Vector3(0,36.5f,camera.transform.position.z);
-                    mainCamera.follow = false;
+                    mainCamera.site = new Vector3(13,36.5f,camera.transform.position.z);
+                    mainCamera.status = mainCamera.Status.move;
                     playerController.cutSceneSite =new Vector3(-10.5f,player.transform.position.y,player.transform.position.z);
                     playerController.cutScene = true;
-                    Invoke("bossDoorClose",1);
+                    Invoke("bossDoorClose",1.25f);
                 } 
             break;
         }
@@ -43,7 +43,7 @@ public class bossDoor : MonoBehaviour
 
     void bossDoorClose()
     {
-        Instantiate(boss,new Vector3(8,32.0f,0),Quaternion.Euler(0,0,0));
+        Instantiate(boss,new Vector3(21,32.0f,0),Quaternion.Euler(0,0,0));
         Instantiate(bossDoorEntity,this.gameObject.transform.position,Quaternion.Euler(0,0,0));
         Destroy(this.gameObject);
     }

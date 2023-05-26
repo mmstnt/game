@@ -42,7 +42,7 @@ public class boss : MonoBehaviour
             {
                 canInjuried = false;
                 Instantiate(playerAttackEffect, this.transform.position,Quaternion.Euler(0,0,0));
-                sp.color = new Color32(255,255,255,128);
+                sp.color = new Color32(255,255,255,160);
                 hp--;
                 if(hp < 1)
                 {
@@ -50,7 +50,7 @@ public class boss : MonoBehaviour
                 }
                 else
                 {
-                    Invoke("Injuried",0.5f);
+                    Invoke("Injuried",0.35f);
                 }
             }
             break;

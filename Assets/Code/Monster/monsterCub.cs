@@ -17,6 +17,7 @@ public class monsterCub : MonoBehaviour
         player = GameObject.Find("Player");
         playerSite = player.transform;
         hp = hpMax;
+        canInjuried = true;
         status = Status.warn;
     }
 
@@ -31,7 +32,7 @@ public class monsterCub : MonoBehaviour
     [Header("生命")]
     public int hpMax;
     public int hp;
-    private bool canInjuried = true;
+    private bool canInjuried;
     public float repel;
     public GameObject playerAttackEffect;
     

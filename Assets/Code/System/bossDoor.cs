@@ -30,6 +30,7 @@ public class bossDoor : MonoBehaviour
             case "Player":
                 if(bossOpen)
                 {
+                    bossOpen = false;
                     mainCamera.site = new Vector3(0,36.5f,camera.transform.position.z);
                     mainCamera.follow = false;
                     playerController.cutSceneSite =new Vector3(-10.5f,player.transform.position.y,player.transform.position.z);

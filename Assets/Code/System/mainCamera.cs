@@ -27,11 +27,11 @@ public class mainCamera : MonoBehaviour
         switch(status)
         {
             case Status.idle:
-                break;
+            break;
             case Status.follow:
                 Vector3 v = player.transform.position;
                 this.gameObject.transform.position = new Vector3(v.x,v.y,-10);
-			    break;
+			break;
 			case Status.move:
                 this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position,site,moveSpeed * Time.deltaTime);
                 if(this.gameObject.transform.position == site)
@@ -39,7 +39,7 @@ public class mainCamera : MonoBehaviour
                     Invoke("back",1.5f);
                     status = Status.idle;
                 }
-                break;
+            break;
 			case Status.back:
                 Vector3 v2 = new Vector3(player.transform.position.x,this.gameObject.transform.position.y,-10);
 				this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position,v2,moveSpeed * Time.deltaTime);
@@ -47,11 +47,11 @@ public class mainCamera : MonoBehaviour
                 {
                     status = Status.boss;
                 }
-                break;
+            break;
             case Status.boss:
                 Vector3 v3 = new Vector3(player.transform.position.x,this.gameObject.transform.position.y,-10);
                 this.gameObject.transform.position = v3;
-				break;
+			break;
         }
     }
 

@@ -104,6 +104,8 @@ MonoBehaviour:
   hp: 0
   playerAttackEffect: {fileID: 1498969559477111008, guid: f857171eee015934b9f619d2807e9e73, type: 3}
   status: 0
+  bossMode: 0
+  bossAttack01Effect: {fileID: 5023041562025881012, guid: 29b0919de3df6224d898da841125be12, type: 3}
 --- !u!70 &751034771735534874
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -101,19 +101,19 @@ public class monsterFlyCub : MonoBehaviour
     private void actionMode(){
 		switch(status){
             case Status.idle:
-				break;
+			break;
 			case Status.warn:
 				warn();
-				break;
+			break;
 			case Status.move:
 				move();
                 status = Status.warn;
-				break;
+			break;
 			case Status.death:
                 InvokeRepeating("deathAnimation", 0, 0.05f);
                 Invoke("death", 0.5f);
                 status = Status.idle;
-				break;
+			break;
 		}
 	}
 

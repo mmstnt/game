@@ -18,6 +18,7 @@ public class boss : MonoBehaviour
         Instantiate(bossAppear,this.gameObject.transform.position,Quaternion.Euler(-90,0,0));
         hp = hpMax;
         canInjuried = true;
+        status = Status.actionModeChange;
     }
 
     // Update is called once per frame
@@ -40,8 +41,9 @@ public class boss : MonoBehaviour
             case "PlayerAttack":
             if(canInjuried)
             {
+                Vector3 v = (coll.gameObject.transform.position + this.gameObject.transform.position)/2;
                 canInjuried = false;
-                Instantiate(playerAttackEffect, this.transform.position,Quaternion.Euler(0,0,0));
+                Instantiate(playerAttackEffect, v,Quaternion.Euler(0,0,0));
                 sp.color = new Color32(255,255,255,160);
                 hp--;
                 if(hp < 1)
@@ -65,19 +67,49 @@ public class boss : MonoBehaviour
 
     [Header("狀態")]  
     public Status status;
-	public enum Status{idle,death};
+	public enum Status{idle,actionModeChange,bossAttack01,death};
+    public int bossMode;
+    public GameObject bossAttack01Effect;
 
     private void actionMode(){
 		switch(status){
             case Status.idle:
-			    break;
+			break;
+            case Status.actionModeChange:
+                Invoke("actionModeChange",UnityEngine.Random.Range(2.0f,3.0f));
+                status = Status.idle;
+            break;
+            case Status.bossAttack01:
+                bossAttack01();
+            break;
 			case Status.death:
                 InvokeRepeating("deathAnimation", 0, 0.05f);
                 Invoke("death", 0.5f);
                 status = Status.idle;
-			    break;
+			break;
 		}
 	}
+
+    private void actionModeChange()
+    {
+        bossMode = UnityEngine.Random.Range(1,1);
+        switch(bossMode)
+        {
+            case 1:
+                status = Status.bossAttack01;
+            break;
+            case 2:
+
+            break;
+        }
+    }
+
+    private void bossAttack01()
+    {
+        status = Status.idle;
+        Instantiate(bossAttack01Effect,this.gameObject.transform.position,Quaternion.Euler(-90,0,0));
+        status = Status.actionModeChange;
+    }
 
     private void deathAnimation()
     {

@@ -209,7 +209,7 @@ public class playerController : MonoBehaviour
             {
                 hp--;
                 canInjuried = false;
-                playerInjuried.injuried = new Color(255,255,255,0.9f);
+                playerInjuried.injuried = new Color(255,255,255,0.7f);
                 injuriedCD = 1;
                 Invoke("Injuried",0.05f);
             }
@@ -235,7 +235,7 @@ public class playerController : MonoBehaviour
             {
                 hp--;
                 canInjuried = false;
-                playerInjuried.injuried = new Color(255,255,255,0.9f);
+                playerInjuried.injuried = new Color(255,255,255,0.7f);
                 injuriedCD = 1;
                 Invoke("Injuried",0.05f);
             }
@@ -260,7 +260,7 @@ public class playerController : MonoBehaviour
         }
         else
         {
-            playerInjuried.injuried -= new Color(0,0,0,0.09f);
+            playerInjuried.injuried -= new Color(0,0,0,0.07f);
             injuriedCD -= 0.1f;
             Invoke("Injuried",0.1f);
         }

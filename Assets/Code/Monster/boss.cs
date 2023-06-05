@@ -67,20 +67,23 @@ public class boss : MonoBehaviour
 
     [Header("狀態")]  
     public Status status;
-	public enum Status{idle,actionModeChange,bossAttack01,bossAttack02,bossAttack03,death};
+	public enum Status{idle,actionModeChange,attack01,attack02,attack03,move,death};
     public int bossMode;
     public GameObject bossAttack01Effect;
     public float bossAttack01CD;
-    public GameObject bossAttack02Effect;
+    public GameObject bossAttack02Cast;
     public float bossAttack02CD;
     public int bossAttack02AmountMin;
     public int bossAttack02AmountMax;
-    private int bossAttack02Amount;
-    public GameObject bossAttack03Effect;
+    public static int bossAttack02Amount;
+    public GameObject bossAttack03Cast;
     public float bossAttack03CD;
     public int bossAttack03AmountMin;
     public int bossAttack03AmountMax;
-    private int bossAttack03Amount;
+    public static int bossAttack03Amount;
+    public GameObject bossMoveEffect;
+    public float bossMoveCD;
+    private int bossMoveTime;
 
 
     private void actionMode(){
@@ -91,18 +94,22 @@ public class boss : MonoBehaviour
                 Invoke("actionModeChange",UnityEngine.Random.Range(2.0f,3.0f));
                 status = Status.idle;
             break;
-            case Status.bossAttack01:
+            case Status.attack01:
                 Invoke("bossAttack01",0.1f);
                 status = Status.idle;
             break;
-            case Status.bossAttack02:
+            case Status.attack02:
                 bossAttack02Amount = UnityEngine.Random.Range(bossAttack02AmountMin,(bossAttack02AmountMax+1));
                 Invoke("bossAttack02",0.1f);
                 status = Status.idle;
             break;
-            case Status.bossAttack03:
+            case Status.attack03:
                 bossAttack03Amount = UnityEngine.Random.Range(bossAttack03AmountMin,(bossAttack03AmountMax+1));
                 Invoke("bossAttack03",0.1f);
+                status = Status.idle;
+            break;
+            case Status.move:
+                Invoke("bossMove",0.1f);
                 status = Status.idle;
             break;
 			case Status.death:
@@ -115,17 +122,20 @@ public class boss : MonoBehaviour
 
     private void actionModeChange()
     {
-        bossMode = UnityEngine.Random.Range(1,4);
+        bossMode = UnityEngine.Random.Range(1,5);
         switch(bossMode)
         {
             case 1:
-                status = Status.bossAttack01;
+                status = Status.attack01;
             break;
             case 2:
-                status = Status.bossAttack02;
+                status = Status.attack02;
             break;
             case 3:
-                status = Status.bossAttack03;
+                status = Status.attack03;
+            break;
+            case 4:
+                status = Status.move;
             break;
         }
     }
@@ -143,34 +153,56 @@ public class boss : MonoBehaviour
 
     private void bossAttack02()
     {
-        Vector3 v = playerSite.position;
-        v.x += UnityEngine.Random.Range(-8.0f,8.0f);
-        v.y += UnityEngine.Random.Range(2.0f,8.0f);
-        Instantiate(bossAttack02Effect,v,Quaternion.Euler(0,0,0));
-        bossAttack02Amount--;
-        if(bossAttack02Amount > 0)
-        {
-            Invoke("bossAttack02",0.5f);
-        }
-        else
-        {
-            Invoke("actionModePrepare",bossAttack02CD);
-        }
+        Instantiate(bossAttack02Cast,this.gameObject.transform.position,Quaternion.Euler(0,0,0));
+        Invoke("actionModePrepare",bossAttack02CD);
     }
 
     private void bossAttack03()
     {
-        Vector3 v = this.gameObject.transform.position;
-        v.x = playerSite.position.x;
-        Instantiate(bossAttack03Effect,v,Quaternion.Euler(0,0,0));
-        bossAttack03Amount--;
-        if(bossAttack03Amount > 0)
+        Instantiate(bossAttack03Cast,this.gameObject.transform.position,Quaternion.Euler(0,0,0));
+        Invoke("actionModePrepare",bossAttack03CD);
+    }
+
+    private void bossMove()
+    {
+        canInjuried = false;
+        Instantiate(bossMoveEffect,this.gameObject.transform.position,Quaternion.Euler(0,0,0));
+        bossMoveTime = 10;
+        sp.color = new Color32(255,255,255,255);
+        Invoke("bossMoveDisappear",0.1f);
+    }
+
+    private void bossMoveDisappear()
+    {
+        if(bossMoveTime > 0)
         {
-            Invoke("bossAttack03",0.5f);
+            bossMoveTime--;
+            sp.color -= new Color32(0,0,0,25);
+            Invoke("bossMoveDisappear",0.1f);
         }
         else
         {
-            Invoke("actionModePrepare",bossAttack03CD);
+            Vector3 v = this.gameObject.transform.position;
+            v.x = UnityEngine.Random.Range(-10.0f,23.0f);
+            Instantiate(bossMoveEffect,v,Quaternion.Euler(0,0,0));
+            sp.color = new Color32(255,255,255,5);
+            Invoke("bossMoveAppear",0.1f);
+            this.gameObject.transform.position = v;
+            canInjuried = true;
+        }
+    }
+
+    private void bossMoveAppear()
+    {
+        if(bossMoveTime < 10)
+        {
+            bossMoveTime++;
+            sp.color += new Color32(0,0,0,25);
+            Invoke("bossMoveAppear",0.1f);
+        }
+        else
+        {
+            Invoke("actionModePrepare",bossMoveCD);
         }
     }
 

@@ -205,7 +205,7 @@ public class playerController : MonoBehaviour
         switch(coll.gameObject.tag)
         {
             case "Monster":
-            if(canInjuried)
+            if(canInjuried && sprintTime)
             {
                 hp--;
                 canInjuried = false;
@@ -231,7 +231,7 @@ public class playerController : MonoBehaviour
         switch(coll.gameObject.tag)
         {
             case "BossAttack":
-            if(canInjuried)
+            if(canInjuried && sprintTime)
             {
                 hp--;
                 canInjuried = false;

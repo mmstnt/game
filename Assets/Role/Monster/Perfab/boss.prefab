@@ -107,14 +107,16 @@ MonoBehaviour:
   bossMode: 0
   bossAttack01Effect: {fileID: 5023041562025881012, guid: 29b0919de3df6224d898da841125be12, type: 3}
   bossAttack01CD: 0
-  bossAttack02Effect: {fileID: 2847580113040188806, guid: 1116421b0881a3e46a9ed1a69b0f8c16, type: 3}
+  bossAttack02Cast: {fileID: 2913869037970052003, guid: 69645e8fa29953f478d495222798b0ae, type: 3}
   bossAttack02CD: 0
   bossAttack02AmountMin: 3
   bossAttack02AmountMax: 5
-  bossAttack03Effect: {fileID: 6353581676006241654, guid: f655f66ef980cb745bf747a34ed04872, type: 3}
+  bossAttack03Cast: {fileID: 7825860540622565076, guid: 343aa61dd3fc8a34c974fc6227d3c3c5, type: 3}
   bossAttack03CD: 0
   bossAttack03AmountMin: 1
   bossAttack03AmountMax: 3
+  bossMoveEffect: {fileID: 5037709991696421056, guid: 63b5453112eac33478ea90918bb3d480, type: 3}
+  bossMoveCD: 0
 --- !u!70 &751034771735534874
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -151,4 +153,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 5
+  m_Constraints: 7

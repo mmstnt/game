@@ -19,6 +19,10 @@ public class boss : MonoBehaviour
         hp = hpMax;
         canInjuried = true;
         status = Status.actionModeChange;
+        bossViolent = 0;
+        bossViolent01 = true;
+        bossViolent02 = true;
+        callAmount = 0;
     }
 
     // Update is called once per frame
@@ -26,6 +30,7 @@ public class boss : MonoBehaviour
     {
         timer = Time.deltaTime*1000;
         actionMode();
+        violent();
     }
 
     [Header("生命")]
@@ -84,14 +89,66 @@ public class boss : MonoBehaviour
     public GameObject bossMoveEffect;
     public float bossMoveCD;
     private int bossMoveTime;
+    public GameObject bossViolentEffect;
+    private int bossViolent;
+    private bool bossViolent01;
+    private bool bossViolent02;
+    public GameObject callEffect;
+    private int callAmount;
+    public GameObject bloodStone;
 
+    private void violent()
+    {
+        if(hp < hpMax * 0.3f)
+        {
+            bossViolent = 2;
+            if(bossViolent02)
+            {
+                Vector3 v = this.gameObject.transform.position;
+                Instantiate(bossViolentEffect,v,Quaternion.Euler(0,0,0));
+                v.y += 4;
+                Instantiate(bloodStone,v,Quaternion.Euler(0,0,0));
+                callAmount += bossViolent * 2;
+                Invoke("call",0.1f);
+                bossViolent02 = false;
+            }
+        }
+        else if (hp < hpMax * 0.6f)
+        {
+            bossViolent = 1;
+            if(bossViolent01)
+            {
+                Vector3 v = this.gameObject.transform.position;
+                Instantiate(bossViolentEffect,v,Quaternion.Euler(0,0,0));
+                v.y += 4;
+                Instantiate(bloodStone,v,Quaternion.Euler(0,0,0));
+                callAmount += bossViolent * 2;
+                Invoke("call",0.1f);
+                bossViolent01 = false;
+            }
+        }
+        else
+        {
+            bossViolent = 0;
+        }
+    }
+
+    private void call()
+    {
+        if(callAmount > 0)
+        {
+            Instantiate(callEffect,this.gameObject.transform.position,Quaternion.Euler(0,0,0));
+            callAmount--;
+            Invoke("call",0.5f);
+        }
+    }
 
     private void actionMode(){
 		switch(status){
             case Status.idle:
 			break;
             case Status.actionModeChange:
-                Invoke("actionModeChange",UnityEngine.Random.Range(2.0f,3.0f));
+                Invoke("actionModeChange",UnityEngine.Random.Range(2.0f-(bossViolent*0.5f),3.0f-(bossViolent*0.5f)));
                 status = Status.idle;
             break;
             case Status.attack01:
@@ -189,6 +246,8 @@ public class boss : MonoBehaviour
             Invoke("bossMoveAppear",0.1f);
             this.gameObject.transform.position = v;
             canInjuried = true;
+            callAmount += bossViolent;
+            Invoke("call",0.1f);
         }
     }
 

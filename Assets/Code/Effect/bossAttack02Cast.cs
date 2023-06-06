@@ -26,8 +26,8 @@ public class bossAttack02Cast : MonoBehaviour
     private void bossAttack02()
     {
         Vector3 v = playerSite.position;
-        v.x += UnityEngine.Random.Range(-8.0f,8.0f);
-        v.y += UnityEngine.Random.Range(2.0f,8.0f);
+        v.x += UnityEngine.Random.Range(-12.0f,12.0f);
+        v.y += UnityEngine.Random.Range(2.0f,10.0f);
         Instantiate(bossAttack02Effect,v,Quaternion.Euler(0,0,0));
         bossAttackAmount--;
         if(bossAttackAmount > 0)

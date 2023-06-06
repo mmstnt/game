@@ -17,8 +17,8 @@ TagManager:
   - Player
   - Monster
   - Props
+  - Boss
   - BossAttack
-  - 
   - 
   - 
   - 
@@ -46,4 +46,19 @@ TagManager:
     locked: 0
   - name: black
     uniqueID: 3630930469
+    locked: 0
+  - name: boss
+    uniqueID: 250651447
+    locked: 0
+  - name: monster
+    uniqueID: 687335527
+    locked: 0
+  - name: playerAttack
+    uniqueID: 124519665
+    locked: 0
+  - name: props
+    uniqueID: 4134168341
+    locked: 0
+  - name: effect
+    uniqueID: 3421830475
     locked: 0

@@ -160,7 +160,11 @@ public class monsterCub : MonoBehaviour
 
     private void death()
     {
-        Instantiate(bloodStone, this.transform.position,Quaternion.Euler(0,0,0));
+        int x = UnityEngine.Random.Range(1,5);
+        if(x == 1)
+        {
+            Instantiate(bloodStone, this.transform.position,Quaternion.Euler(0,0,0));
+        }
         Destroy(this.gameObject);
     }
 }

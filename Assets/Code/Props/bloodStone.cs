@@ -13,8 +13,9 @@ public class bloodStone : MonoBehaviour
         sp = this.gameObject.GetComponent<SpriteRenderer>();
         rigid2D = this.gameObject.GetComponent<Rigidbody2D>();
         blood = true;
-        color = 255;
-        disappearTime = 10;
+        color = 0;
+        disappearTime = 0;
+        Invoke("appear",0.05f);
     }
 
     // Update is called once per frame
@@ -44,7 +45,17 @@ public class bloodStone : MonoBehaviour
         }
     }
 
-    public void disappear() {
+    private void appear()
+    {
+        if(disappearTime < 10 && blood)
+        {
+            color += 25;
+            disappearTime++;
+            Invoke("appear",0.05f);
+        }
+    }
+
+    private void disappear() {
         if(disappearTime > 0)
         {
             color -= 25;

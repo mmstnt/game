@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 228076138123909300}
   - component: {fileID: 751034771735534874}
   - component: {fileID: 618992985526673509}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 250651447
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 24e3925be9bb0ea4a96c828712bef231, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -106,17 +106,20 @@ MonoBehaviour:
   status: 0
   bossMode: 0
   bossAttack01Effect: {fileID: 5023041562025881012, guid: 29b0919de3df6224d898da841125be12, type: 3}
-  bossAttack01CD: 0
+  bossAttack01CD: 0.5
   bossAttack02Cast: {fileID: 2913869037970052003, guid: 69645e8fa29953f478d495222798b0ae, type: 3}
-  bossAttack02CD: 0
+  bossAttack02CD: 1.5
   bossAttack02AmountMin: 3
   bossAttack02AmountMax: 5
   bossAttack03Cast: {fileID: 7825860540622565076, guid: 343aa61dd3fc8a34c974fc6227d3c3c5, type: 3}
-  bossAttack03CD: 0
+  bossAttack03CD: 1
   bossAttack03AmountMin: 1
   bossAttack03AmountMax: 3
   bossMoveEffect: {fileID: 5037709991696421056, guid: 63b5453112eac33478ea90918bb3d480, type: 3}
-  bossMoveCD: 0
+  bossMoveCD: 0.5
+  bossViolentEffect: {fileID: 104148439373139490, guid: b99d0543881a5fa4dbf843e5d006b146, type: 3}
+  callEffect: {fileID: 2164880470767381212, guid: 2969cb293777b384ea9326adb43d6e3e, type: 3}
+  bloodStone: {fileID: 791057583698679061, guid: 9894010a77c401f46b5e88e3443c7957, type: 3}
 --- !u!70 &751034771735534874
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

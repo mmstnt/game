@@ -4838,8 +4838,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -873136821
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -4943,8 +4943,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 0}
-  size: {x: 1, y: 3}
+  startOffset: {x: 0, y: 0}
   offset: {x: 0, y: 1.25}
+  size: {x: 1, y: 3}
   damagaTime: 1.1
 --- !u!1 &2827714437042246134
 GameObject:
@@ -5018,8 +5019,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 0}
-  size: {x: 1, y: 1.5}
+  startOffset: {x: 0, y: 0}
   offset: {x: 0, y: 0.5}
+  size: {x: 1, y: 1.5}
   damagaTime: 0.5
 --- !u!1 &4764676156363609357
 GameObject:
@@ -9859,8 +9861,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -873136821
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -14730,8 +14732,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -873136821
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -14835,8 +14837,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 0}
-  size: {x: 1, y: 2}
+  startOffset: {x: 0, y: 0}
   offset: {x: 0, y: 0.75}
+  size: {x: 1, y: 2}
   damagaTime: 0.7
 --- !u!1 &5023041560274804768
 GameObject:
@@ -19676,8 +19679,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -873136821
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -24547,8 +24550,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -873136821
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -29418,8 +29421,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -873136821
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -34289,8 +34292,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -873136821
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -39211,8 +39214,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 0}
-  size: {x: 1, y: 3}
+  startOffset: {x: 0, y: 0}
   offset: {x: 0, y: 1.25}
+  size: {x: 1, y: 3}
   damagaTime: 1.1
 --- !u!1 &5023041560588392581
 GameObject:
@@ -39286,8 +39290,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 0}
-  size: {x: 1, y: 1.5}
+  startOffset: {x: 0, y: 0}
   offset: {x: 0, y: 0.5}
+  size: {x: 1, y: 1.5}
   damagaTime: 0.5
 --- !u!1 &5023041560863968272
 GameObject:
@@ -39361,8 +39366,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 0}
-  size: {x: 1, y: 2.5}
+  startOffset: {x: 0, y: 0}
   offset: {x: 0, y: 1}
+  size: {x: 1, y: 2.5}
   damagaTime: 0.9
 --- !u!1 &5023041561783843422
 GameObject:
@@ -39436,8 +39442,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 0}
-  size: {x: 1, y: 3.5}
+  startOffset: {x: 0, y: 0}
   offset: {x: 0, y: 1.5}
+  size: {x: 1, y: 3.5}
   damagaTime: 1.3
 --- !u!1 &5023041561789542812
 GameObject:
@@ -44277,8 +44284,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -873136821
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -54044,8 +54051,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -873136821
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -58923,8 +58930,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -873136821
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -59028,8 +59035,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 0}
-  size: {x: 1, y: 2}
+  startOffset: {x: 0, y: 0}
   offset: {x: 0, y: 0.75}
+  size: {x: 1, y: 2}
   damagaTime: 0.7
 --- !u!1 &6948246576062355195
 GameObject:
@@ -63869,8 +63877,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -873136821
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -63974,8 +63982,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 0}
-  size: {x: 1, y: 2.5}
+  startOffset: {x: 0, y: 0}
   offset: {x: 0, y: 1}
+  size: {x: 1, y: 2.5}
   damagaTime: 0.9
 --- !u!1 &8146333085951176828
 GameObject:
@@ -64049,8 +64058,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 0}
-  size: {x: 1, y: 3.5}
+  startOffset: {x: 0, y: 0}
   offset: {x: 0, y: 1.5}
+  size: {x: 1, y: 3.5}
   damagaTime: 1.3
 --- !u!1 &8669225322177573577
 GameObject:

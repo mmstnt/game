@@ -96,6 +96,7 @@ public class boss : MonoBehaviour
     public GameObject callEffect;
     private int callAmount;
     public GameObject bloodStone;
+    public GameObject bossDeathEffect;
 
     private void violent()
     {
@@ -156,12 +157,12 @@ public class boss : MonoBehaviour
                 status = Status.idle;
             break;
             case Status.attack02:
-                bossAttack02Amount = UnityEngine.Random.Range(bossAttack02AmountMin,(bossAttack02AmountMax+1));
+                bossAttack02Amount = UnityEngine.Random.Range(bossAttack02AmountMin+bossViolent,(bossAttack02AmountMax+1)+bossViolent);
                 Invoke("bossAttack02",0.1f);
                 status = Status.idle;
             break;
             case Status.attack03:
-                bossAttack03Amount = UnityEngine.Random.Range(bossAttack03AmountMin,(bossAttack03AmountMax+1));
+                bossAttack03Amount = UnityEngine.Random.Range(bossAttack03AmountMin+bossViolent,(bossAttack03AmountMax+1)+bossViolent);
                 Invoke("bossAttack03",0.1f);
                 status = Status.idle;
             break;
@@ -170,8 +171,9 @@ public class boss : MonoBehaviour
                 status = Status.idle;
             break;
 			case Status.death:
-                InvokeRepeating("deathAnimation", 0, 0.05f);
-                Invoke("death", 0.5f);
+                Instantiate(bossDeathEffect,this.gameObject.transform.position,Quaternion.Euler(0,0,0));
+                InvokeRepeating("deathAnimation", 0.5f, 0.05f);
+                Invoke("death", 1.5f);
                 status = Status.idle;
 			break;
 		}

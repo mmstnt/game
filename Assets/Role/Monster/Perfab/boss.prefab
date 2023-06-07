@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossAppear: {fileID: 3684664573788938996, guid: b6f1d9fbf8a169c4ba8a49ecbb5d7358, type: 3}
-  hpMax: 100
+  hpMax: 10
   hp: 0
   playerAttackEffect: {fileID: 1498969559477111008, guid: f857171eee015934b9f619d2807e9e73, type: 3}
   status: 0
@@ -120,6 +120,7 @@ MonoBehaviour:
   bossViolentEffect: {fileID: 104148439373139490, guid: b99d0543881a5fa4dbf843e5d006b146, type: 3}
   callEffect: {fileID: 2164880470767381212, guid: 2969cb293777b384ea9326adb43d6e3e, type: 3}
   bloodStone: {fileID: 791057583698679061, guid: 9894010a77c401f46b5e88e3443c7957, type: 3}
+  bossDeathEffect: {fileID: 5213677116499345360, guid: b54cddf2cd004b4488a6e50b68d20167, type: 3}
 --- !u!70 &751034771735534874
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

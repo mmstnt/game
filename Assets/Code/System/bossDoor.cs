@@ -33,7 +33,7 @@ public class bossDoor : MonoBehaviour
                     bossOpen = false;
                     mainCamera.site = new Vector3(13,36.5f,camera.transform.position.z);
                     mainCamera.status = mainCamera.Status.move;
-                    playerController.cutSceneSite =new Vector3(-10.5f,player.transform.position.y,player.transform.position.z);
+                    playerController.cutSceneSite = -10.5f;
                     playerController.cutScene = true;
                     Invoke("bossDoorClose",1.25f);
                 } 

@@ -11,7 +11,7 @@ public class playerController : MonoBehaviour
     public float timer;
     public GameObject black;
     public static bool cutScene;
-    public static Vector3 cutSceneSite;
+    public static float cutSceneSite;
 
     // Start is called before the first frame update
     void Start()
@@ -37,8 +37,10 @@ public class playerController : MonoBehaviour
         timer = Time.deltaTime*1000;
         if(cutScene)
         {
-            this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position,cutSceneSite,moveSpeed * Time.deltaTime);
-            if(this.gameObject.transform.position == cutSceneSite && (mainCamera.status == mainCamera.Status.boss || mainCamera.status == mainCamera.Status.follow))
+	    Vector3 v = this.gameObject.transform.position;
+	    v.x = cutSceneSite; 
+            this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position,v,moveSpeed * Time.deltaTime);
+            if(this.gameObject.transform.position.x == cutSceneSite && (mainCamera.status == mainCamera.Status.boss || mainCamera.status == mainCamera.Status.follow))
             {
                 cutScene = false;
             }
@@ -238,15 +240,15 @@ public class playerController : MonoBehaviour
                 playerInjuried.injuried = new Color(255,255,255,0.7f);
                 injuriedCD = 1;
                 Invoke("Injuried",0.05f);
-            }
-            Transform c = coll.gameObject.transform;
-            if(this.gameObject.transform.position.x > c.position.x)
-            {
-                rigid2D.AddForce(new Vector2(repel*timer,0),ForceMode2D.Impulse);
-            }
-            if(this.gameObject.transform.position.x < c.position.x)
-            {
-                rigid2D.AddForce(new Vector2(-repel*timer,0),ForceMode2D.Impulse);
+		Transform c = coll.gameObject.transform;
+            	if(this.gameObject.transform.position.x > c.position.x)
+            	{
+                	rigid2D.AddForce(new Vector2(repel*timer,0),ForceMode2D.Impulse);
+            	}
+            	if(this.gameObject.transform.position.x < c.position.x)
+            	{
+                	rigid2D.AddForce(new Vector2(-repel*timer,0),ForceMode2D.Impulse);
+            	}
             }
             break;
         }

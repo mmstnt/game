@@ -59,9 +59,12 @@ TagManager:
   - name: props
     uniqueID: 4134168341
     locked: 0
-  - name: effect
+  - name: player
     uniqueID: 3421830475
     locked: 0
-  - name: system
+  - name: effect
     uniqueID: 1395748321
+    locked: 0
+  - name: system
+    uniqueID: 956353651
     locked: 0

@@ -27,7 +27,7 @@ public class buttle : MonoBehaviour
 
     public void goGameStart()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(4);
     }
 
     public void backToTitle()

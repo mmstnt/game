@@ -37,8 +37,8 @@ public class playerController : MonoBehaviour
         timer = Time.deltaTime*1000;
         if(cutScene)
         {
-	    Vector3 v = this.gameObject.transform.position;
-	    v.x = cutSceneSite; 
+	        Vector3 v = this.gameObject.transform.position;
+	        v.x = cutSceneSite; 
             this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position,v,moveSpeed * Time.deltaTime);
             if(this.gameObject.transform.position.x == cutSceneSite && (mainCamera.status == mainCamera.Status.boss || mainCamera.status == mainCamera.Status.follow))
             {
@@ -240,7 +240,7 @@ public class playerController : MonoBehaviour
                 playerInjuried.injuried = new Color(255,255,255,0.7f);
                 injuriedCD = 1;
                 Invoke("Injuried",0.05f);
-		Transform c = coll.gameObject.transform;
+		        Transform c = coll.gameObject.transform;
             	if(this.gameObject.transform.position.x > c.position.x)
             	{
                 	rigid2D.AddForce(new Vector2(repel*timer,0),ForceMode2D.Impulse);

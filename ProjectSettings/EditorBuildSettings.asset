@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Teach.unity
     guid: fbb991e4ce1fae145b0fe05278d525d6
+  - enabled: 1
+    path: Assets/Scenes/ChooseLevel.unity
+    guid: 34691de05226f134caa6139f8976645a
   m_configObjects: {}

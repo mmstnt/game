@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class mainCamera : MonoBehaviour
 {
@@ -11,9 +12,13 @@ public class mainCamera : MonoBehaviour
     public float moveSpeed;
     public AudioSource audios;
     public AudioClip[] audiosClip;
+    public static float endTime;
+    public static bool end;
     // Start is called before the first frame update
     void Start()
     {
+        end = false;
+        endTime = 0;
         player = GameObject.Find("Player");
         audios = this.gameObject.GetComponent<AudioSource>();
         audios.clip = audiosClip[0];
@@ -24,6 +29,12 @@ public class mainCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        endTime += Time.deltaTime;
+        if(end)
+        {
+            Invoke("cut",1.0f);
+            end = false;
+        }
         switch(status)
         {
             case Status.idle:
@@ -58,5 +69,10 @@ public class mainCamera : MonoBehaviour
     public void back()
     {
         status = Status.back;
+    }
+
+    private void cut()
+    {
+        SceneManager.LoadScene(3);
     }
 }

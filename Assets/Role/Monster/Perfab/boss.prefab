@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossAppear: {fileID: 3684664573788938996, guid: b6f1d9fbf8a169c4ba8a49ecbb5d7358, type: 3}
+  black: {fileID: 672843701452352720, guid: db739ac1a79e0e6479bb33d9b91751fa, type: 3}
   hpMax: 100
   hp: 0
   playerAttackEffect: {fileID: 1498969559477111008, guid: f857171eee015934b9f619d2807e9e73, type: 3}

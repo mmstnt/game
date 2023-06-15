@@ -10,6 +10,7 @@ public class boss : MonoBehaviour
     private SpriteRenderer sp;
     private GameObject player;
     private Transform playerSite;
+    public GameObject black;
     // Start is called before the first frame update
     void Start()
     {
@@ -274,7 +275,9 @@ public class boss : MonoBehaviour
     }
 
     private void death()
-    {
-        SceneManager.LoadScene(3);
+    {   
+        Instantiate(black, this.gameObject.transform.position,Quaternion.Euler(0,0,0));
+        mainCamera.end = true;
+        Destroy(this.gameObject);
     }
 }
